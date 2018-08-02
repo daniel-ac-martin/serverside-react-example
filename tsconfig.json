@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "outDir": "./build",
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react"
+  },
+  "include": [
+    "./src/**/*",
+    "./test/**/*"
+  ],
+  "exclude": [
+    "coverage",
+    "node_modules"
+  ]
+}
