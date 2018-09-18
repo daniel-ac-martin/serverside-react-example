@@ -4,8 +4,8 @@ import config from './config';
 import log from './lib/logger';
 import * as healthCheck from './controller/health-check';
 import * as restify from 'restify';
-import { createElement } from 'react';
-import { renderToString } from 'react-dom/server';
+require('@skatejs/ssr/register');
+const render = require('@skatejs/ssr');
 import * as page from './components/Page';
 
 const restifyBunyanLogger = require('restify-bunyan-logger');
@@ -32,11 +32,13 @@ httpd.get('/healthz', healthCheck.liveness);
 httpd.get('/readiness', healthCheck.readiness);
 
 httpd.get('/', (req: any, res: any, next: any) => {
-    res.end(renderToString(createElement(page.Page, { type: page.PageType.Blog }, null)));
+    res.setHeader('Content-type', 'text/html');
+    render(new page.component()).then(res.end.bind(res));
 });
 
 httpd.get('/gallery', (req: any, res: any, next: any) => {
-    res.end(renderToString(createElement(page.Page, { type: page.PageType.Gallery }, null)));
+    res.setHeader('Content-type', 'text/html');
+    render(new page.component({ type: page.PageType.Gallery })).then(res.end.bind(res));
 });
 
 switch (config.mode) {

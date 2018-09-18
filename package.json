@@ -13,20 +13,20 @@
   "license": "GPL-3.0+",
   "devDependencies": {
     "@types/bunyan": "^1.8.4",
-    "@types/react": "^16.4.6",
-    "@types/react-dom": "^16.0.6",
     "@types/restify": "^7.2.3",
+    "@types/skatejs": "^5.0.0",
     "nodemon": "^1.18.0",
     "ts-node": "^7.0.0",
     "typescript": "^2.9.2",
     "webpack": "^4.15.1"
   },
   "dependencies": {
+    "@skatejs/renderer-preact": "^0.3.3",
+    "@skatejs/ssr": "^0.19.9",
     "bunyan": "^1.8.12",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
     "restify": "^7.2.1",
     "restify-bunyan-logger": "^2.0.7",
-    "serverless-http": "^1.6.0"
+    "serverless-http": "^1.6.0",
+    "skatejs": "^5.2.4"
   }
 }
